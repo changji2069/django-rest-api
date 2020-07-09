@@ -2,6 +2,7 @@ from django.test import TestCase
 
 from django.contrib.auth import get_user_model
 
+
 class ModelTests(TestCase):
 
     def test_create_user_with_email_successful(self):
@@ -9,8 +10,8 @@ class ModelTests(TestCase):
         email = 'test@gmail.com'
         password = '123456'
         user = get_user_model().objects.create_user(
-            email = email,
-            password = password
+            email=email,
+            password=password
         )
 
         self.assertEqual(user.email, email)
@@ -35,5 +36,5 @@ class ModelTests(TestCase):
             '123455'
         )
 
-        self.assertTrue(user.is_superuser) #included in permissionsmixin
+        self.assertTrue(user.is_superuser)  # included in permissionsmixin
         self.assertTrue(user.is_staff)
